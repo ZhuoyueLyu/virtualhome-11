@@ -12,6 +12,11 @@ public class SwitchPointCloudsNew : MonoBehaviour
     public Toggle myToggle3;
     public Toggle myToggle4;
     public Toggle myToggle5;
+    public Toggle myToggle6;
+    public Toggle myToggle7;
+    public Toggle myToggle8;
+    public Toggle myToggle9;
+    public Toggle myToggle10;
     private Client client;
     private int[] ChunkIds;
     private bool needUpdate = false;
@@ -25,13 +30,17 @@ public class SwitchPointCloudsNew : MonoBehaviour
         myToggle3.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
         myToggle4.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
         myToggle5.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
+        myToggle6.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
+        myToggle7.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
+        myToggle8.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
+        myToggle9.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
+        myToggle10.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
     }
 
     void Update()
     {
         if (needUpdate)
         {
-            
             foreach (float id in ChunkIds)
             {
                 var relativePath = "Assets/ply-common/" + (id).ToString() + ".ply";
@@ -50,11 +59,19 @@ public class SwitchPointCloudsNew : MonoBehaviour
         int myToggle3IsOn = myToggle3.isOn ? 1 : 0;
         int myToggle4IsOn = myToggle4.isOn ? 1 : 0;
         int myToggle5IsOn = myToggle5.isOn ? 1 : 0;
+        int myToggle6IsOn = myToggle6.isOn ? 1 : 0;
+        int myToggle7IsOn = myToggle7.isOn ? 1 : 0;
+        int myToggle8IsOn = myToggle8.isOn ? 1 : 0;
+        int myToggle9IsOn = myToggle9.isOn ? 1 : 0;
+        int myToggle10IsOn = myToggle10.isOn ? 1 : 0;
 
         Debug.Log("We are sending Message!");
-        client.requester.SetMessage(myToggle1IsOn.ToString() + "," + myToggle2IsOn.ToString() + "," +
-                                    myToggle3IsOn.ToString() + "," + myToggle4IsOn.ToString() + "," +
-                                    myToggle5IsOn.ToString());
+        client.requester.SetMessage(
+            myToggle1IsOn.ToString() + "," + myToggle2IsOn.ToString() + "," +
+            myToggle3IsOn.ToString() + "," + myToggle4IsOn.ToString() + "," +
+            myToggle5IsOn.ToString() + "," + myToggle6IsOn.ToString() + "," +
+            myToggle7IsOn.ToString() + "," + myToggle8IsOn.ToString() + "," +
+            myToggle9IsOn.ToString() + "," + myToggle10IsOn.ToString());
     }
 
     // int mod(int x, int m)
